@@ -1,0 +1,80 @@
+
+
+<div class="form__container">
+<% if(User){ %>
+    
+    <% if(error){ %>
+        <h1 class="error__message"><%= error %></h1>
+    <% }  %>
+
+    <% if(success){ %>
+        <h1 class="flash__success"><%= success %></h1>
+    <% }  %>
+    
+    <form action="/" method="POST" class="form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Write your question" name="questionName">
+        </div>
+
+        <div class="form-group">
+            <textarea name="" class="textarea-control"
+             placeholder="A small description about question (optional)" name="questionBody"></textarea>
+        </div>
+
+        <div class="center__a_btn">
+            <button class="btn btn__primary" type="submit">Post</button>
+          </div>
+          
+    </form>
+
+    <% }else { %>
+
+        <h1 class="error__message">Please Login to post your questions</h1>
+
+    <% } %>
+
+</div>
+
+
+
+<div class="form__container container__fix">
+  
+
+    
+<% if(locals.questions.length > 0){ %>
+    <div class="question__container">
+
+    <% locals.questions.forEach(question => { %> 
+        
+        <div class="question__card">
+            <h1 class="user_a_name"><%= question.User.name %> 
+                <span class="user__name">@<%= question.User.userName %> </span></h1>
+
+            <h3 class="question__title"><%= question.questionName %></h3>
+            <a href="/question/<%= question.questionSlug %>" class="btn btn__primary btn_a_link__fix">Post an answer</a>
+        </div>
+    <%})  %>
+</div>
+
+<% }else{ %> 
+
+<h1>No questions posted yet</h1>    
+<% } %>
+
+
+<div class="pagination__link__container">
+    
+
+<% if(locals.pages.prev){ %> 
+    <a href="<%= pages.prev %>" class="btn btn__primary">Previous</a>
+<% }  %>
+
+
+<% if(locals.pages.next){ %> 
+    <a href="<%= pages.next %>" class="btn btn__primary">Next</a>
+<% } %>
+
+</div>
+       
+    
+</div> 

@@ -1,0 +1,35 @@
+
+:root{
+    --border-color: #ddd;
+}
+
+.question_page__container{
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.question__info{
+    /* text-align: center; */
+}
+
+.question__body{
+    font-size: 20px;
+}
+
+.text-align-left{
+    text-align: left!important;
+}
+
+.anwser__form{
+    padding: 60px 0;
+}
+
+.total__ans{
+    padding: 30px 0;
+}
+
+.answer__card{
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    margin: 14px 0;
+}

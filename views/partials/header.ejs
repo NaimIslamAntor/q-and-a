@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QandA || Ask questions</title>
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" 
+    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+    <!-- scripts -->
+
+    <script src="/js/navbar.js" defer></script>
+</head>
+<body>
+
+    <!-- navbar -->
+    <header class="header__container">
+
+        <siv class="navbar">
+
+            <a  href="/" class="navbar__logo">QandA</a>
+
+        <nav class="navbar__container" id="navBarContainer">
+
+            <ul class="navbar__list_container">
+
+                <% if(User){ %> 
+                <li class="nav__list">
+                   <form action="/logout" method="POST">
+                       <button class="btn nav__link">Logout</button>
+                   </form>
+                </li>
+
+                <% }else{ %>
+
+                <li class="nav__list">
+                    <a href="/login" class="nav__link">Login</a>
+                </li>
+
+                <li class="nav__list">
+                    <a href="/register" class="nav__link">Register</a>
+                </li>
+                <% }  %>
+
+            </ul>
+
+        </nav>
+
+        <div class="mobile__bar">
+            <i class="fa-solid fa-bars" id="navBar"></i>
+        </div>
+
+        </siv>
+
+    </header>

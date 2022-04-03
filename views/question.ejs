@@ -1,0 +1,68 @@
+
+<div class="question_page__container">
+    <div class="question__info">
+
+        <h1 class="user_a_name"><%= question.User.name %>
+            <span class="user__name">@<%= question.User.userName %> </span></h1>
+        
+            <h3 class="question__title"><%= question.questionName %></h3>
+
+
+            <p class="question__body">
+              <%= question.questionBody  %>
+            </p>
+    </div>
+
+<div class="anwser__form">
+    
+    <% if(User){ %>
+    
+        <% if(error){ %>
+            <h1 class="error__message"><%= error %></h1>
+        <% }  %>
+    
+        <% if(success){ %>
+            <h1 class="flash__success"><%= success %></h1>
+        <% }  %>
+        
+        <form action="/answer" method="POST" class="form">
+         
+            <input type="hidden" name="questionId" value="<%= question.id  %>">
+            <div class="form-group">
+                <textarea  class="textarea-control"
+                 placeholder="Write yuor answer" name="answer"></textarea>
+            </div>
+    
+            <div class="center__a_btn">
+                <button class="btn btn__primary" type="submit">Post</button>
+              </div>
+              
+        </form>
+    
+        <% }else { %>
+    
+            <h1 class="error__message text-align-left">Please Login to post your answers</h1>
+    
+        <% } %>
+</div>
+
+
+
+<div class="answer__div">
+
+    <h1 class="total__ans">Total ans: <%= answers.count %></h1>
+
+    <% if(answers.rows.length > 0){ %> 
+        <% answers.rows.forEach(answer => {  %> 
+    <div class="answer__card">
+        <h1 class="user_a_name"><%= answer.User.name %>
+            <span class="user__name">@<%= answer.User.userName %> </span></h1>
+            <p class="question__body">
+                <%= answer.answer %>
+            </p>
+    </div>
+    <% })  %>
+    <% }  %>
+</div>
+
+</div>

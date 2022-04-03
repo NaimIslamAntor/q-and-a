@@ -1,0 +1,35 @@
+<div class="form__container">
+
+    <h1 class="page__headline">Login</h1>
+
+    <% if(success.length > 0){ %>
+     
+       <% success.forEach(message =>  { %>
+        <h1 class="flash__success"><%= message %></h1>
+        <% })  %>
+      
+    <% }  %>
+
+
+    
+    <% if(error){ %>
+       <h1 class="error__message"><%= error %></h1>
+   <% }  %>
+
+    <form action="/login" method="POST" class="form">
+      
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter your username" name="username">
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Enter your password" name="password">
+        </div>
+
+
+      <div class="center__a_btn">
+        <button class="btn btn__primary" type="submit">Login</button>
+      </div>
+    </form>
+
+</div>
