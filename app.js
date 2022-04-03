@@ -70,12 +70,12 @@ app.use(function(req, res, next) {
 })
 
 
-
-if(process.env.NODE_ENV === 'development'){
-  //database connection check
 connDB()
+// if(process.env.NODE_ENV === 'development'){
+//   //database connection check
+// connDB()
 
-}
+// }
 
 
 app.use('/', questionRoutes)
