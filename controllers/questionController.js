@@ -34,7 +34,7 @@ const homePage = async (req, res) => {
    res.render('index', { questions, pages })
 
     } catch (error) {
-        res.send(error.message)
+        res.send(`${error.message} wrong happend`)
     }
 }
 
